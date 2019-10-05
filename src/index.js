@@ -148,7 +148,7 @@ class DBLAPI extends EventEmitter {
     } else {
       data.server_count = this.client.guilds.size;
       if (this.client.shard && this.client.shard.count) {
-        data.shard_id = this.client.shard.id;
+        data.shard_id = this.client.shard.id || this.client.shard.ids[0];
         data.shard_count = this.client.shard.count;
       } else if (this.client.shards && this.client.shards.size !== 1) {
         data.shard_count = this.client.shards.size;
